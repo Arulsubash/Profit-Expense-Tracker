@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block body %}
-   <div id="head">
+   <div id="head" class="container-fluid">
       <h2 style="margin: 0; text-transform: capitalize;">Hello, {{name}}!</h2>
       <form action="/logout" method="post">
          <input type="submit" value="Logout" id="logout">
       </form>
    </div>
-   <div id="addinput">
+   <div id="addinput" class="container-fluid">
       <form action="/home" method="post">
          <select name="type" required>
             <option disabled selected>Select</option>
