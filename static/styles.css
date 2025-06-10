@@ -6,6 +6,7 @@ body {
     width: 350px;
     margin: 125px auto;
     border: 2px solid;
+    border: none;
     padding: 10px 15px;
     border-radius: 25px;
 }
@@ -71,6 +72,7 @@ p {
     padding:15px 15px;
     box-sizing: border-box;
     border-radius:8px;
+    border: none;
     border-color: #F1BA88;
 }
 
@@ -84,7 +86,7 @@ select {
     background-color: #F1BA88;
     margin: 0px 10px 0px 0px;
     width: 20%;
-    padding:5px;
+    padding:3px;
     border-radius: 8px;
     border-color: #F1BA88;
 }
@@ -106,6 +108,7 @@ table {
     margin: 20px 0px 0px 150px;
     padding: 2px 0px 2px 8px;
     border-radius: 8px;
+    border: none;
     border-color: #F1BA88;
 }
 
@@ -123,18 +126,19 @@ table {
 }
 
 #copyrights {
-    display: fixed;
-    text-align: center;
+    position: absolute;
+    top: 90%;
+    left: 32%;
 }
 
 @media (max-width: 768px) {
-    body {
+    #addinput {
         padding: 10px;
     }
 
     #form-containner {
         width: 90%;
-        margin: 40px auto;
+        margin: 160px auto;
     }
 
     #form input,
@@ -172,8 +176,9 @@ table {
     }
 
     table {
-        width: 100%;
+        width: 55% !important;
         font-size: 14px;
+        margin: 25px auto;
         overflow-x: auto;
         display: block;
     }
@@ -186,5 +191,12 @@ table {
     #forgot {
         margin: 10px auto;
         text-align: center;
+    }
+
+    #copyrights {
+    position: absolute;
+    top: 90%;
+    left: 0%;
+    text-align: center;
     }
 }
