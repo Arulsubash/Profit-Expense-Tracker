@@ -118,6 +118,69 @@ table {
     text-align: center;
 }
 
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #form-containner {
+        width: 90%;
+        margin: 40px auto;
+    }
+
+    #form input,
+    select,
+    #search,
+    #input {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    button {
+        width: 100%;
+        margin: 15px 0px;
+    }
+
+    #logout,
+    #clearall,
+    #addinput {
+        margin: 15px auto;
+        display: block;
+        text-align: center;
+    }
+
+    #clearall {
+        margin: 0px 130px 0px 140px;
+    }
+
+    #clear {
+        margin: 0px;
+    }
+
+    #search {
+        width: 100%;
+        margin: 15px 0px 0px 0px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+    }
+
+    #head {
+        height: auto;
+        padding: 40px 0;
+    }
+
+    #forgot {
+        margin: 10px auto;
+        text-align: center;
+    }
+
+}
+
 #clearall {
     margin: 0px 0px 0px 800px;
 }
