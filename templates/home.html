@@ -5,77 +5,59 @@
 {% endblock %}
 
 {% block body %}
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-sm-12 text-center">
-            <h2 style="margin: 0; text-transform: capitalize;">Hello, {{name}}!</h2>
-            <form action="/logout" method="post">
-               <input type="submit" value="Logout" class="btn btn-danger">
-            </form>
-         </div>
-      </div>
+   <div id="head">
+      <h2 style="margin: 0; text-transform: capitalize;">Hello, {{name}}!</h2>
+      <form action="/logout" method="post">
+         <input type="submit" value="Logout" id="logout">
+      </form>
    </div>
-
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-sm-12">
-            <form action="/home" method="post" class="mb-3">
-               <select name="type" required class="form-control">
-                  <option disabled selected>Select</option>
-                  <option value="debit">Debit</option>
-                  <option value="credit">Credit</option>
-               </select>
-               <input name="discription" class="form-control mt-2" placeholder="Enter Description" required type="text">
-               <input name="amount" class="form-control mt-2" placeholder="Enter Amount" required type="number">
-               <button type="submit" class="btn btn-primary btn-block mt-2">Add</button>
-            </form>
-
-            <form action="/search" method="post" class="mb-3">
-               <input name="search" type="search" class="form-control" placeholder="Search">
-               <button type="submit" class="btn btn-secondary btn-block mt-2">Search</button>
-            </form>
-
-            <form action="/clear" method="post" class="mb-3">
-               <input name="delete" placeholder="Enter description" type="text" class="form-control">
-               <button type="submit" class="btn btn-danger btn-block mt-2">Clear</button>
-            </form>
-
-            <form action="/clearall" method="post" class="mb-3">
-               <input name="clearall" value="clearall" style="visibility: hidden;">
-               <button type="submit" class="btn btn-warning btn-block">Clear All</button>
-            </form>
-         </div>
-      </div>
+   <div id="addinput">
+      <form action="/home" method="post">
+         <select name="type" required>
+            <option disabled selected>Select</option>
+            <option value="debit">Debit</option>
+            <option value="credit">Credit</option>
+         </select>
+         <input name="discription" id="input" placeholder="Enter Description" required type="text">
+         <input name="amount" id="input" placeholder="Enter Amount" required type="number">
+         <button type="submit" id="button" style="margin: 0px 10px 0px 0px;">Add</button>
+      </form>
+      <form action="/search" method="post">
+      <input name="search" type="search" placeholder="Search" id="search">
+      <button type="submit" style="margin: 0px 0px 0px 0px">Search</button>
+      </form>
+      <form action="/clear" method="post">
+         <input name="delete" placeholder="Enter description" type="text" id=search>
+         <input type="submit" style="margin: 20px 0px 0px 10px; background-color: #dc3545; border-radius: 8px; border-color: red;" value="Clear">
+      </form>
+      <form action="/clearall", method="post" id="clearall">
+         <input name="clearall" value="clearall" style="visibility: hidden ;">
+         <input type="submit" value="Clear All" style="background-color: #dc3545; border-radius: 8px; border-color: red;">
+      </form>
    </div>
-
-   <div class="container-fluid">
-      <div class="row">
-         <div class="col-sm-12">
-            <div class="table-responsive">
-               <table class="table table-bordered table-striped">
-                  <thead class="table-light text-center">
-                     <tr>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Amount</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     {% for data in datas %}
-                     <tr>
-                        <td>{{data.discription}}</td>
-                        <td>{{data.type}}</td>
-                        <td style="color: {% if data.type == 'debit' %}red{% else %}green{% endif %}">₹{{data.amount}}</td>
-                     </tr>
-                     {% endfor %}
-                     <tr>
-                        <td colspan="2" align="right">Total</td>
-                        <td colspan="2" align="center">{{total}}</td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-         </div>
+       <table class="table table-bordered table-striped" style="width: 80%;">
+         <thead class= "table-light" style="text-align: center;">
+            <tr>
+               <th>Description</th>
+               <th>Type</th>
+               <th>Amount</th>
+            </tr>
+         </thead>
+         <tbody>
+               {% for data in datas %}
+                 <tr>
+                   <td id="center">{{data.discription}}</td>
+                   <td id="center">{{data.type}}</td>
+                   <td id="center" style="color: {% if data.type == 'debit' %}red{% else %}green{% endif %}">₹{{data.amount}}</td>
+                 </tr>
+               {% endfor %}
+                 <tr>
+                     <td colspan="2" align="right">Total</td>
+                     <td colspan="2" align="center">{{total}}</td>
+                  </tr>
+         </tbody>
+      </table>
+      <div id="copyrights">
+         &copy; 2025 Profit & Expense Tracker. All rights reserved.
       </div>
-   </div>
 {% endblock %}
