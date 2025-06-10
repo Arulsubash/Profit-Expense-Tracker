@@ -88,8 +88,11 @@ def home():
         type = request.form.get("type")
         amount = request.form.get("amount")
 
-        db.execute("INSERT INTO data(username, type, discription, amount) VALUES(?, ?, ?, ?);", session["username"], type, discription, amount)
-
+        if discription and type and amount:
+            db.execute("INSERT INTO data(username, type, discription, amount) VALUES(?, ?, ?, ?);", session["username"], type, discription, amount)
+        else:
+            return redirect("/home")
+            
     datas = db.execute("SELECT * FROM data WHERE username = ?;", session["username"])
 
     total = 0
@@ -117,6 +120,8 @@ def clear():
         if clear:
             db.execute("DELETE FROM data WHERE username = ? AND discription LIKE ?;", session["username"] ,f"%{clear}%")
             return redirect("/home")
+        else:
+            return redirect("/home")
 
 #search
 @app.route("/search", methods=["GET","POST"])
@@ -129,6 +134,8 @@ def search():
         if search:
             data = db.execute("SELECT * FROM data WHERE username = ? AND (discription LIKE ? OR type = ? OR amount = ?);", session["username"], like, search, search)
             return render_template("home.html", name= session["username"], datas=data)
+        else:
+            return redirect("/home")
 
 #clear all
 @app.route("/clearall", methods=["GET","POST"])
@@ -138,6 +145,8 @@ def clearall():
 
         if clear:
             db.execute("DELETE FROM data WHERE username = ?;", session["username"])
+            return redirect("/home")
+        else:
             return redirect("/home")
 
 if __name__ == "__main__":
