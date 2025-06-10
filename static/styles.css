@@ -95,7 +95,7 @@ table {
 
 #logout {
     margin:0px 0px 0px 1400px;
-    background-color: red;
+    background-color: #dc3545;
     border-radius: 8px;
     border-color: red;
 }
@@ -115,6 +115,15 @@ table {
 }
 
 #center {
+    text-align: center;
+}
+
+#clearall {
+    margin: 0px 0px 0px 800px;
+}
+
+#copyrights {
+    display: fixed;
     text-align: center;
 }
 
@@ -178,10 +187,4 @@ table {
         margin: 10px auto;
         text-align: center;
     }
-
 }
-
-#clearall {
-    margin: 0px 0px 0px 800px;
-}
-
